@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oro d'inchiostro</title>
+  <link rel="icon" href="logo_round_50x50.png" type="image/png" />
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    Oro d'inchiostro
+  </header>
+
+  <nav>
+    <button class="active" data-section="home">Home</button>
+    <button data-section="storia">Storia</button>
+    <button data-section="archivio">Archivio</button>
+  </nav>
+
+  <main>
+    <section id="home" class="active">
+      <h1>Benvenuto nel mio spazio poetico</h1>
+      <p>
+        Qui il tempo rallenta, le parole si fanno seta e i pensieri diventano versi.<br>
+        Ogni poesia è un riflesso d’anima, un filo dorato che unisce emozioni, silenzi e sogni.<br>
+        In questo spazio intimo, troverai parole che sussurrano, che brillano, che restano.<br><br>
+        Lasciati attraversare dai versi, come la luce attraversa l’oro.
+      </p>
+    </section>
+
+    <section id="storia">
+      <p>
+        Mi chiamo nessuno, o forse solo un ragazzo che frequenta l’ITIS.<br>
+        A quindici anni ho iniziato a scrivere poesie non per dovere, ma per necessità.<br>
+        La scintilla è nata grazie alla mia professoressa d’italiano, che ha saputo vedere in me qualcosa<br>
+        che già c’era quando scrivevo temi, pensieri, saggi troppo pieni di sentimento per essere solo compiti.<br><br>
+
+        Questa raccolta è un riflesso di quel mondo nascosto: <strong>il mio inconscio, le mie inquietudini, i miei sogni fragili ma veri</strong>.<br>
+        Ogni poesia nasce da dentro, senza filtro, senza vergogna.<br>
+        A volte mi scopre, altre volte mi protegge. Ma sempre, parla per me.<br><br>
+
+        Se sei qui, ti ringrazio. Forse nei miei versi troverai anche una parte di te.
+      </p>
+    </section>
+
+    <section id="archivio">
+      <ul id="poem-list"></ul>
+      <div id="poem-detail" style="display:none;">
+        <h3 id="poem-title"></h3>
+        <p id="poem-text"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p style="text-align: center; color: #bfa76f; font-size: 0.9rem;">&copy; Oro d'inchiostro. Tutti i diritti riservati.</p>
+  </footer>
+ <script src="script.js"></script>
+</body>
+</html>
