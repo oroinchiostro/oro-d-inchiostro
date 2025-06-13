@@ -6,43 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const poemTitle = document.getElementById('poem-title');
   const poemText = document.getElementById('poem-text');
   let currentOpenIndex = null;
-  let poesie = [];
-
-  // Fallback: poesie statiche se il fetch fallisce
-  const poesieDiDefault = [
-    {
-      titolo: "Io",
-      testo: `Nel tramonto che sfuma lento,\nuna luce dorata si spande,\ne accende il cuore contento,\ndi speranze e di attese grandi.`
-    },
-    {
-      titolo: "Oro e sogni",
-      testo: `Tra fili d'oro e sogni persi,\ncammino lieve su sentieri,\nla mente vola e si disperde,\nin versi dolci e sinceri.`
-    },
-    {
-      titolo: "Il silenzio d'oro",
-      testo: `Nel silenzio della sera,\nuna pace d'oro si posa,\nsulle ali leggere,\ndi una notte silenziosa.`
-    }
-       {
-      titolo: "Nei tuoi occhi",
-      testo: `Nel silenzio della sera,\nuna pace d'oro si posa,\nsulle ali leggere,\ndi una notte silenziosa.`
-    }
-  ];
-
-  // Caricamento poesie da file JSON
-  fetch('poesie.json')
-    .then(response => {
-      if (!response.ok) throw new Error('File non trovato');
-      return response.json();
-    })
-    .then(data => {
-      poesie = data;
-      generaListaPoesie();
-    })
-    .catch(err => {
-      console.warn('Uso poesie di default (file non caricato):', err.message);
-      poesie = poesieDiDefault;
-      generaListaPoesie();
-    });
 
   // Navigazione tra le sezioni
   buttons.forEach(button => {
@@ -65,13 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Mostra dettagli poesia
-  function showPoem(index) {
+  // Funzione per mostrare dettagli poesia
+  function showPoem(poem, index) {
     if (currentOpenIndex === index) {
       poemDetail.style.display = 'none';
       currentOpenIndex = null;
     } else {
-      const poem = poesie[index];
       poemTitle.textContent = poem.titolo;
       poemText.textContent = poem.testo;
       poemDetail.style.display = 'block';
@@ -80,14 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Genera lista poesie
-  function generaListaPoesie() {
-    poemList.innerHTML = ''; // Pulisce la lista
-    poesie.forEach((poem, idx) => {
-      const li = document.createElement('li');
-      li.textContent = poem.titolo;
-      li.addEventListener('click', () => showPoem(idx));
-      poemList.appendChild(li);
+  // Carica le poesie da poesie.json
+  fetch('poesie.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Impossibile caricare poesie.json');
+      }
+      return response.json();
+    })
+    .then(poesie => {
+      poesie.forEach((poesia, idx) => {
+        const li = document.createElement('li');
+        li.textContent = poesia.titolo;
+        li.addEventListener('click', () => showPoem(poesia, idx));
+        poemList.appendChild(li);
+      });
+    })
+    .catch(error => {
+      console.error('Errore nel caricamento delle poesie:', error);
+      poemList.innerHTML = '<li style="color: red;">Errore nel caricamento delle poesie.</li>';
     });
-  }
 });
