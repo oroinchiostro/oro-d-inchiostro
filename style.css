@@ -24,16 +24,16 @@ header {
 
 nav {
   display: flex;
-  gap: 4rem;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2rem;
   padding: 0 2rem;
   justify-content: flex-start;
   font-weight: 600;
   font-size: 1.25rem;
   color: #bfa76f;
   user-select: none;
-  flex-wrap: wrap;
-  max-width: 350px;
-  margin-left: 2rem;
+  max-width: 100%;
 }
 
 nav button {
@@ -42,11 +42,11 @@ nav button {
   color: #bfa76f;
   cursor: pointer;
   padding: 0.5rem 0;
-  letter-spacing: 0.1em;
   border-bottom: 3px solid transparent;
   transition: color 0.3s ease, border-bottom-color 0.3s ease;
-  flex-shrink: 0;
+  white-space: nowrap;
 }
+
 
 nav button:hover,
 nav button.active {
