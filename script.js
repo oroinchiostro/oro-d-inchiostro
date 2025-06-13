@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Fallback: poesie statiche se il fetch fallisce
   const poesieDiDefault = [
     {
-      titolo: "Luce dorata",
+      titolo: "Io",
       testo: `Nel tramonto che sfuma lento,\nuna luce dorata si spande,\ne accende il cuore contento,\ndi speranze e di attese grandi.`
     },
     {
