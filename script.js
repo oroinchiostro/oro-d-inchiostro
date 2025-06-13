@@ -22,6 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
       titolo: "Il silenzio d'oro",
       testo: `Nel silenzio della sera,\nuna pace d'oro si posa,\nsulle ali leggere,\ndi una notte silenziosa.`
     }
+       {
+      titolo: "Nei tuoi occhi",
+      testo: `Nel silenzio della sera,\nuna pace d'oro si posa,\nsulle ali leggere,\ndi una notte silenziosa.`
+    }
   ];
 
   // Caricamento poesie da file JSON
