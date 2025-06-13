@@ -24,7 +24,7 @@ header {
 
 nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
   gap: 2rem;
   padding: 0 2rem;
@@ -33,7 +33,7 @@ nav {
   font-size: 1.25rem;
   color: #bfa76f;
   user-select: none;
-  max-width: 100%;
+  max-width: none;
 }
 
 nav button {
